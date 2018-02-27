@@ -1,0 +1,13 @@
+Package: steamspyR
+Version: 0.0.0.9000
+Title: Pull Down and Parse Steam Spy API Data
+Description: Creates various tibbles of Steam Spy's data based on API requests.
+Authors@R: person("Thomas", "Keller", , "thomas.e.keller@gmail.com", c("aut", "cre"))
+License: MIT
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Imports: 
+    magrittr
