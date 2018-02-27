@@ -82,3 +82,4 @@ game_detail <- function(appid=730){
                                     appid))
 }
 
+
