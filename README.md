@@ -25,3 +25,8 @@ scidf <- genre_tag("Sci-fi")
 qplot(price,players_forever,data=scidf,geom='point') + cowplot::theme_cowplot()
 ```
 
+
+This will produce a nice pretty ggplot graph formatted using [cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) with little effort.
+
+
+![meaningless plot](https://github.com/thomas-keller/steamspyR/blob/master/steamspy_ex.png)
