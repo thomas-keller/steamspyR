@@ -2,6 +2,7 @@
 #' @param json A json produced by the Steam Spy API
 #' @return A tibble of steam spy values, usually ~ 100 games, unless
 #' allgames() was usedue
+#' @export
 parse_sspy <- function(json){
   gamel <- data.frame(do.call("rbind", json))
   gamedf <- gamel %>% purrr::map_dfc(~unlist(.))
@@ -17,6 +18,7 @@ parse_sspy <- function(json){
 
 #' returns all games and data currently in the steamspy database
 #' @return A tibble with all games and data currently in the Steamspy database
+#' @export
 all_games <- function(){
   json <- jsonlite::fromJSON("http://steamspy.com/api.php?request=all")
   parse_sspy(json)
@@ -29,6 +31,7 @@ all_games <- function(){
 #' @example \dontrun{
 #' genregames("Early+Access")
 #' }
+#' @export
 genre_games <- function(genre){
   json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=genre&genre=",genre))
   parse_sspy(json)
@@ -42,6 +45,7 @@ genre_games <- function(genre){
 #' @example \dontrun{
 #' genregames("Sci-fi")
 #' }
+#' @export
 tag_games <- function(tag){
   json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=tag&tag=",tag))
   parse_sspy(json)
@@ -53,6 +57,7 @@ tag_games <- function(tag){
 
 #' return a tibble with the top 100 games since March 2009.
 #' @return A tibble with the top 100 games since March 2009.
+#' @export
 top_forever <- function(){
   json <- jsonlite::fromJSON("http://steamspy.com/api.php?request=top100forever")
   parse_sspy(json)
@@ -61,6 +66,7 @@ top_forever <- function(){
 
 #' return a tibble with the top 100 games from the last 2 weeks.
 #' @return A tibble with the top 100 games from the last 2 weeks.
+#' @export
 top_2wk <- function(){
   json <- jsonlite::fromJSON("http://steamspy.com/api.php?request=top100in2weeks")
   parse_sspy(json)
@@ -77,6 +83,7 @@ top_2wk <- function(){
 #' if you just blindly run it in a loop. Don't be a jerk!
 #' @param appid An integer corresponding to the steam game, look up via
 #' the summary top... or other ways
+#' @export
 game_detail <- function(appid=730){
   json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=appdetails&appid=",
                                     appid))

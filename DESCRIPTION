@@ -10,6 +10,9 @@ ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 Imports: 
-    magrittr
+    magrittr,
+    dplyr,
+    purrr,
+    jsonlite
 URL: https://github.com/thomas-keller/steamspyR
 BugReports: https://github.com/thomas-keller/steamspyR/issues
