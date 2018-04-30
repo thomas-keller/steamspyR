@@ -18,7 +18,7 @@ parse_sspy <- function(json){
     nchar(gamedf$initialprice) == 2 ~ as.numeric(paste0(".",gamedf$initialprice)),
     TRUE ~ 0
   )
-  gamedf$discount <- as.int(gamedf$discount)
+  gamedf$discount <- as.integer(gamedf$discount)
   return(gamedf)
 }
 
