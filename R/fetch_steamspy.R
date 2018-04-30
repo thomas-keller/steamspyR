@@ -13,8 +13,8 @@ parse_sspy <- function(json){
     TRUE ~ 0
   )
   gamedf$initialprice <- dplyr::case_when(
-    nchar(gamedf$initialprice) == 4 ~ as.numeric(paste0(substr(gamedf$initialprice,1,2), ".", substr(gamedf$price,3,4))),
-    nchar(gamedf$initialprice) == 3 ~ as.numeric(paste0(substr(gamedf$initialprice,1,1), ".", substr(gamedf$price,2,3))),
+    nchar(gamedf$initialprice) == 4 ~ as.numeric(paste0(substr(gamedf$initialprice,1,2), ".", substr(gamedf$initialprice,3,4))),
+    nchar(gamedf$initialprice) == 3 ~ as.numeric(paste0(substr(gamedf$initialprice,1,1), ".", substr(gamedf$initialprice,2,3))),
     nchar(gamedf$initialprice) == 2 ~ as.numeric(paste0(".",gamedf$initialprice)),
     TRUE ~ 0
   )
