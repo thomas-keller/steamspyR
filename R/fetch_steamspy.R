@@ -12,6 +12,13 @@ parse_sspy <- function(json){
     nchar(gamedf$price) == 2 ~ as.numeric(paste0(".",gamedf$price)),
     TRUE ~ 0
   )
+  gamedf$initialprice <- dplyr::case_when(
+    nchar(gamedf$initialprice) == 4 ~ as.numeric(paste0(substr(gamedf$initialprice,1,2), ".", substr(gamedf$price,3,4))),
+    nchar(gamedf$initialprice) == 3 ~ as.numeric(paste0(substr(gamedf$initialprice,1,1), ".", substr(gamedf$price,2,3))),
+    nchar(gamedf$initialprice) == 2 ~ as.numeric(paste0(".",gamedf$initialprice)),
+    TRUE ~ 0
+  )
+  gamedf$discount <- as.int(gamedf$discount)
   return(gamedf)
 }
 
@@ -45,9 +52,8 @@ genre_games <- function(genre){
 #' @example \dontrun{
 #' genregames("Sci-fi")
 #' }
-#' @export
 tag_games <- function(tag){
-  json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=tag&tag=",tag))
+  json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=tags&tags=",tag))
   parse_sspy(json)
 }
 
