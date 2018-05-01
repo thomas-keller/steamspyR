@@ -19,7 +19,7 @@ devtools::install_github("thomas-keller/steamspyR")
 
 This is a basic example which shows you look at one type of problem, what is the relationship beteween playerbase and the price of games? We will stratify it by the new bins that steamspy returns on the estimate game copies:
 
-``` r
+```R
 library(steamspyR)
 library(forcats)
 df=genre_games("Action")
