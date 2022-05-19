@@ -53,7 +53,7 @@ genre_games <- function(genre){
 #' genregames("Sci-fi")
 #' }
 tag_games <- function(tag){
-  json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=tags&tags=",tag))
+  json <- jsonlite::fromJSON(paste0("http://steamspy.com/api.php?request=tag&tag=",tag))
   parse_sspy(json)
 }
 
